@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Compressor</title>
+    <style>
+          body {
+            display: flex;
+            align-items: center;
+            background-color: rgba(64, 20, 88, 0.516);
+            justify-content: center;
+            height: 100vh; /* Make the container full-height */
+            margin: 0; /* Remove default margin to avoid spacing issues */
+        }
+
+        .centered-div {
+            width: 600px; /* Set your desired width */
+            height: 200px; /* Set your desired height */
+            background-color: rgba(24, 39, 44, 0.516);
+            text-align: center;
+            line-height: 30px; /* Set line-height to vertically center content */
+        }
+    </style>
+</head>
+<body>
+    
+        <div class="centered-div">
+            
+        
+    
+    <h2>File Compressor</h2>
+    <form method="post" action="{% url 'compress_file' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="file">Select a file:</label>
+        <input type="file" id="file" name="file" required>
+        <br>
+        <label for="compression_level">Compression Level (1-9):</label>
+        <input type="number" id="compression_level" name="compression_level" min="1" max="9" value="6" required>
+        <br>
+        <button type="submit">Compress and Download</button>
+    </form>
+</div>
+</body>
+</html>
